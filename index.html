@@ -5,92 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LookLab</title>
   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
   <header>
-    <h1>LookLab</h1>
-    <h3>o seu laboratório fashion<h3>
+    <h1>LookLab - Seu laboratório fashion!</h1>
   </header>
 
   <main>
 
-    <!-- Seção de filtros por categoria -->
-    <section class="filtros">
-      <h2>Categorias</h2>
-      <ul>
-        <li><button>Todas</button></li>
-        <li><button>Camisetas</button></li>
-        <li><button>Calças</button></li>
-        <li><button>Calçados</button></li>
-        <li><button>Acessórios</button></li>
-      </ul>
-    </section>
+    <!-- esquerda: cadastro, filtros e peças -->
+    <div class="coluna-catalogo">
 
-    <!-- Seção onde o usuário cadastra uma peça nova -->
-    <section class="adicionar-peca">
-      <h2>Adicionar Peça</h2>
-      <form>
-        <label for="nome-peca">Nome da peça</label>
-        <input type="text" id="nome-peca" name="nome-peca" placeholder="Ex: Camiseta branca">
+      <!-- cadastro -->
+      <section class="adicionar-peca">
+        <h2>Adicionar Peça</h2>
+        <form id="form-peca">
+          <label for="nome-peca">Nome da peça</label>
+          <input type="text" id="nome-peca" name="nome-peca" placeholder="Ex: Camiseta branca" required>
 
-        <label for="imagem-peca">Imagem</label>
-        <input type="file" id="imagem-peca" name="imagem-peca" accept="image/*">
+          <label for="imagem-peca">Imagem</label>
+          <input type="file" id="imagem-peca" name="imagem-peca" accept="image/*" required>
 
-        <label for="categoria-peca">Categoria</label>
-        <select id="categoria-peca" name="categoria-peca">
-          <option value="camiseta">Camiseta</option>
-          <option value="calca">Calça</option>
-          <option value="calcado">Calçado</option>
-          <option value="acessorios">Acessório</option>
-        </select>
+          <label for="categoria-peca">Categoria</label>
+          <select id="categoria-peca" name="categoria-peca">
+            <option value="camiseta">Camiseta</option>
+            <option value="calca">Calça</option>
+            <option value="calcado">Calçado</option>
+          </select>
 
-        <button type="button">Adicionar peça</button>
-      </form>
-    </section>
+          <button type="submit" id="btn-adicionar">Adicionar peça</button>
+        </form>
+      </section>
 
-    <!-- Seção onde as roupas cadastradas pelo usuário vão aparecer, organizadas por categoria -->
-    <section class="catalogo">
-      <h2>Peças</h2>
+      <!-- filtros -->
+      <section class="filtros">
+        <h2>Categorias</h2>
+        <ul>
+          <li><button type="button" class="filtro ativo" data-filtro="todas">Todas</button></li>
+          <li><button type="button" class="filtro" data-filtro="camiseta">Camisetas</button></li>
+          <li><button type="button" class="filtro" data-filtro="calca">Calças</button></li>
+          <li><button type="button" class="filtro" data-filtro="calcado">Calçados</button></li>
+        </ul>
+      </section>
 
-      <div class="linha-categoria" data-categoria="camiseta">
-        <h3>Camisetas</h3>
-        <div class="itens">
-          <p class="vazio">Nenhuma camiseta adicionada ainda.</p>
+      <!-- peças cadastradas -->
+      <section class="catalogo">
+        <h2>Peças (<span id="contador">0</span>)</h2>
+
+        <div class="linha-categoria" data-categoria="camiseta">
+          <h3>Camisetas</h3>
+          <div class="itens"></div>
         </div>
-      </div>
 
-      <div class="linha-categoria" data-categoria="calca">
-        <h3>Calças</h3>
-        <div class="itens">
-          <p class="vazio">Nenhuma calça adicionada ainda.</p>
+        <div class="linha-categoria" data-categoria="calca">
+          <h3>Calças</h3>
+          <div class="itens"></div>
         </div>
-      </div>
 
-      <div class="linha-categoria" data-categoria="calcado">
-        <h3>Calçados</h3>
-        <div class="itens">
-          <p class="vazio">Nenhum calçado adicionado ainda.</p>
+        <div class="linha-categoria" data-categoria="calcado">
+          <h3>Calçados</h3>
+          <div class="itens"></div>
         </div>
-      </div>
+      </section>
 
-      <div class="linha-categoria" data-categoria="acessorios">
-        <h3>Acessórios</h3>
-        <div class="itens">
-          <p class="vazio">Nenhum acessório adicionado ainda.</p>
+    </div>
+
+    <!-- direita: look atual e looks salvos -->
+    <aside class="coluna-look">
+
+      <section class="look">
+        <h2>Meu Look</h2>
+
+        <div class="slot" data-slot="camiseta">
+          <h3>Camiseta</h3>
+          <div class="slot-conteudo"></div>
         </div>
-      </div>
 
-    </section>
+        <div class="slot" data-slot="calca">
+          <h3>Calça</h3>
+          <div class="slot-conteudo"></div>
+        </div>
 
-    <!-- Seção onde o look montado vai aparecer -->
-    <section class="look">
-      <h2>Meu Look</h2>
-      <p>Nenhum item adicionado ainda.</p>
-    </section>
+        <div class="slot" data-slot="calcado">
+          <h3>Calçado</h3>
+          <div class="slot-conteudo"></div>
+        </div>
+
+        <div class="look-acoes">
+          <input type="text" id="nome-look" placeholder="Nome do look (ex: Look de sábado)">
+          <div class="botoes">
+            <button type="button" id="btn-salvar-look">Salvar look</button>
+            <button type="button" id="btn-limpar-look" class="secundario">Limpar look</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="looks-salvos">
+        <h2>Looks Salvos</h2>
+        <div id="lista-looks"></div>
+      </section>
+
+    </aside>
 
   </main>
 
   <footer>
-    <p>Catálogo de Roupas — projeto de estudo</p>
+    <p>LookLab — Catálogo de Roupas</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
