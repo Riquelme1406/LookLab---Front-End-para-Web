@@ -64,3 +64,19 @@ Nota final
 No geral, o projeto está bem organizado e cumpre bem o que foi proposto. Dá para perceber que houve cuidado na construção da estrutura HTML e na organização do conteúdo.
 
 Avaliador : Caio Victor
+
+
+CODE REVIEW
+Estrutura e Versionamento: Organização limpa de arquivos com nomes em minúsculas e sem espaços, ideal para controle de versão.
+
+Semântica HTML: Uso correto de tags estruturais e formulários com associação adequada de label/input, alimentando a árvore de acessibilidade.
+
+Layout Moderno: Emprego estrutural de CSS Grid e Flexbox, além do uso de position: sticky no painel lateral.
+
+Processamento Gráfico: Redução e otimização inteligente de imagens via <canvas> antes de salvá-las no localStorage.
+
+Nota Final: 9.5/10
+
+Achei criativo a proposta, gostei muito do design de interface mesmo sendo simples achei muito intuitivo, a seleção de cores da UI gostei muito também.
+
+Avaliador: Juan Riquelme Silva Félix
